@@ -1,0 +1,8 @@
+@font-face {
+    font-family: CheyenneSans;
+    src: url('../fonts/CheyenneSans-Regular.ttf');
+}
+
+*{
+    font-family:CheyenneSans ;
+}

@@ -4,6 +4,7 @@ import App from './App.jsx'
 import Login from './Login.jsx';
 import './index.css';
 import { LoginStatusProvider } from './components/context.jsx';
+import './assets/css/font.css'
 
 import {
   createBrowserRouter,

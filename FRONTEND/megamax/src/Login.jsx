@@ -46,22 +46,23 @@ function Login() {
   } else {
     return (
       <>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleChangeUser}
-            value={formUsername}
-            placeholder="Nombre Usuario"
-          />
-
-          <input
-            type="text"
-            onChange={handleChangePass}
-            value={formPassword}
-            placeholder="Contraseña"
-          />
-          <button type="submit">Log in</button>
-        </form>
+        <div className="d-flex justify-content-center align-items-center border border-2" style={{ height: '100vh' }}>
+          <div className="w-25 border rounded p-4 shadow">
+            <form action="" onSubmit={handleSubmit}>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="ejemplo" onChange={handleChangeUser}
+                  value={formUsername} />
+                <label for="floatingInput">Nombre Usuario</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Coñtraseña" onChange={handleChangePass}
+                  value={formPassword} />
+                <label for="floatingPassword">Contraseña</label>
+              </div>
+              <button type="submit" class="btn btn-primary mt-2">Login</button>
+            </form>
+          </div>
+        </div>
       </>
     );
   }

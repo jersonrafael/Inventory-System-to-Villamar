@@ -14,9 +14,11 @@ function LoginStatusProvider({ children }) {
                 if (response.status === 200) {
                     setIsLoggedIn(true);
                 }
+                else{
+                    setIsLoggedIn(false)
+                }
             })
             .catch((err) => {
-                console.log(err)
                 setIsLoggedIn(false);
             });
     }, []);

@@ -3,11 +3,11 @@ import { LoginContext } from "./context";
 import AddProductModal from "./modal";
 
 
-function Header() {
+function Header({products}) {
     const loginStatus = useContext(LoginContext)
     const [modal, setModalStatus] = useState(false)
 
-    const openModal = () => setModalStatus(true);
+    const openAddProductModal = () => setModalStatus(true);
     const closeModal = () => setModalStatus(false);
 
     document.addEventListener("keydown", (e) => {
@@ -20,33 +20,37 @@ function Header() {
     if (loginStatus === true) {
         return (
             <>
-                <header>
-                    <nav className="flex justify-end">
-                        <ul className="flex gap-x-4 mx-2">
+                <header className="py-2 shadow mb-5">
+                    <nav className="d-flex justify-content-end">
+                        <ul className="d-flex gap-2 mx-2">
 
-                            <button onClick={openModal}>
+                            <button onClick={openAddProductModal} className="btn btn-success">
                                 ( F1 ) Agregar
                             </button>
 
-                            <li>
+                            <button onClick={()=>{}} className="btn btn-warning">
+                                ( F2 ) Clientes
+                            </button>
+
+                            <li className="btn btn-danger" >
                                 Cerrar Sesion
                             </li>
                         </ul>
                     </nav>
                 </header>
 
-                <AddProductModal modal={modal} closeModal={closeModal} />
+                <AddProductModal modal={modal} closeModal={closeModal} products={products} />
             </>
         )
     }
     else {
         return (
             <>
-                <header>
-                    <nav className="flex justify-end" >
+                <header className="py-2 shadow mb-5">
+                    <nav className="d-flex justify-content-end" >
                         <ul className="mx-2" >
                             <li>
-                                <a href="login/">Iniciar Sesion</a>
+                                <a href="login/" className="btn btn-info">Iniciar Sesion</a>
                             </li>
                         </ul>
                     </nav>
