@@ -1,26 +1,96 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
 
+    <script src="https://unpkg.com/htmx.org@2.0.2"
+        integrity="sha384-Y7hw+L/jvKeWIRRkqWYfPcvVxHzVzn5REgzbawhxAuQGwX1XWe70vji+VSeHOThJ"
+        crossorigin="anonymous"></script>
+
     <title>{% block title %}{% endblock title %}</title>
 </head>
-<body>
 
-    </div>
+<body>
 
     {% include 'components/nav-bar.html'%}
 
-    <div>
-        {% block content %}
-        {% endblock content %}
+    <div class="d-flex" style="height: 100vh;">
+        <div class="w-25 d-flex justify-content-start shadow">
+            {% if request.user.is_staff %}
+            <ul style="font-size: 26px; list-style: none; margin-top: 5rem;">
+
+                <li>
+                    <div hx-get="{% url 'home' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Inicio
+                    </div>
+                </li>
+
+                <li>
+                    <div hx-get="{% url 'products' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Productos</div>
+                </li>
+
+                <li>
+                    <div hx-get="{% url 'providers' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Proveedores</div>
+                </li>
+
+                <li>
+                    <div hx-get="{% url 'orders' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Ordenes</div>
+                </li>
+
+                <li>
+                    <div hx-get="{% url 'sales' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Ventas</div>
+                </li>
+
+                <li>
+                    <div hx-get="{% url 'configuration' %}" hx-target="#body" hx-trigger="click" hx-swap="innerHTML">
+                        Configuration</div>
+                </li>
+            </ul>
+            {% else %}
+
+            {%endif%}
+        </div>
+
+        <div class="w-100" id="body">
+            {% block content %}
+            <div class="d-flex flex-wrap gap-3 m-3" >
+    
+                <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
+                    Productos
+                </div>
+            
+                <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
+                    Proveedores
+                </div>
+            
+                <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
+                    clientes
+                </div>
+            
+                <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
+                    ordenes
+                </div>
+            
+                <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
+                    ventas
+                </div>
+            </div>
+            {% endblock content %}
+        </div>
     </div>
 </body>
+
 </html>

@@ -1,48 +1,16 @@
-<header class="shadow">
-    <nav>
-        <ul class="d-flex align-items-center justify-content-between mx-3">
-            <div>
-                <h2>LOGO</h2>
-            </div>
-            <div class="d-flex gap-3" style="list-style-type: none;">
+<header class="shadow" style="">
+    <ul class="d-flex align-items-center justify-content-between mx-3" style="padding: 16px;">
+        <div>
+            <img src="" alt="logo">
+        </div>
+        <div class="d-flex gap-3" style="list-style-type: none;">
 
-                {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
 
-                    {% if request.user.is_staff %}
-                    <li>
-                        <a href="">Usuarios</a>
-                    </li>
-    
-                    <li>
-                        <a href="">Agregar Producto</a>
-                    </li>
-                    {% else %}
+            <a href="{% url 'logout' %}">Logout</a>
 
-                    <li>
-                        <a href="">Clientes</a>
-                    </li>
-
-                    <li>
-                        <a href="">Ordenes</a>
-                    </li>
-               
-                    {% endif %}
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
-
-                {% else %}
-
-                <li>
-                    <a href=" {% url 'home' %} ">Inicio</a>
-                </li>
-
-                <li>
-                    <a href=" {%url 'login' %} ">Login</a>
-                </li>
-
-                {% endif %}
-            </div>
-        </ul>
-    </nav>
+            {% else %}
+            {% endif %}
+        </div>
+    </ul>
 </header>

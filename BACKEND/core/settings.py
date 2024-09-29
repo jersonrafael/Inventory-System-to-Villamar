@@ -30,8 +30,6 @@ CORS_ALLOW_ALL_ORIGINS =True
 
 # Application definition
 
-
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +40,9 @@ INSTALLED_APPS = [
     
     'products',
     'accounts',
+    'orders',
+    'providers',
+    'clients',
     
     'rest_framework',
     'rest_framework_simplejwt',
