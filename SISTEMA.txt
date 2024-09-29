@@ -1,0 +1,60 @@
+Ordenes de compra
+IDD COMPRA 
+Proveedor
+Productos
+Unidade
+cantidad
+permite agregar varios productos
+Majear descuentos 
+Impuestos
+observaciones
+permite imprimir
+
+
+Ordenes recibidas recibidas
+
+
+Devoluciones
+Producto
+unidad
+cantidad
+
+Ventas
+nnombre cliente
+producto
+unidad
+cantidad
+
+Proveedores
+Nombre
+direccion
+contacto
+Estado
+
+Productos
+Nombre
+descripcion
+precio
+proveedor
+estado
+
+Stock
+
+
+Usuarios
+
+
+Permite al admin modificar datos de su cuenta y de los trbajadores
+Permite cambiar el nombre del sistema
+La abreviacion
+El logo del sistema
+El banner
+Permite gestionar los usuarios
+
+Como usuario puedes ver ordenes de compra 
+compras recibidas
+devoluciones
+ventas
+proveedores
+productos 
+
