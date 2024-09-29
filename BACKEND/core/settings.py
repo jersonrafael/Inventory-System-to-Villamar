@@ -30,7 +30,7 @@ CORS_ALLOW_ALL_ORIGINS =True
 
 # Application definition
 
-
+LOGIN_REDIRECT_URL = "accounts/login"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     
     'products',
     'accounts',
+    'orders',
+    'providers',
+    'clients',
     
     'rest_framework',
     'rest_framework_simplejwt',

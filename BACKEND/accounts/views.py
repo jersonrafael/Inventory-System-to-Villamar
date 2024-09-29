@@ -11,7 +11,7 @@ def loginUser(request):
             login(request, user)
             return redirect('/')
         else:
-            redirect('accounts/login')
+            return redirect('accounts/login')
     else:
         return render(request, 'login.html')
 

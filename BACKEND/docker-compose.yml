@@ -6,9 +6,3 @@ services:
     - "8000:8000"
     volumes:
     - .:/app
-  # frontend:
-  #   build: ../FRONTEND/megamax
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ../FRONTEND/megamax:/frontend

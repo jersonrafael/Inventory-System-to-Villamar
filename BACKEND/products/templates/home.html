@@ -1,60 +1,26 @@
-{% extends 'base.html' %}
+{% if request.user.is_staff %}
+<div class="d-flex flex-wrap gap-3 m-3" >
+    
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="{% url 'products' %}">
+        Productos
+    </a>
 
-{% block content %}
-<div>
-    <h1 class="text-center">Productos</h1>
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        Proveedores
+    </a>
 
-    <div class="d-flex justify-content-center">
-        <table class="table shadow" style="width: 60%;">
-            <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Codigo</th>
-                    {% if request.user.is_authenticated%}
-                    <th>Opciones</th>
-                    {% else %}
-                    {% endif%}
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in products %}
-                <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.code }}</td>
-                    
-                    {% if request.user.is_authenticated%}
-                        {% if request.user.is_staff %}
-                        <td>
-                            <ul class="d-flex gap-3" style="list-style: none;">
-                                <li>
-                                    <a href="">Editar</a>
-                                </li>
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        clientes
+    </a>
 
-                                <li>
-                                    <a href="">Eliminar</a>
-                                </li>
-                            </ul>
-                        </td>
-                        {% else %}
-                        <td>
-                            <li>
-                                <a href="">Agregar al carro</a>
-                            </li>
-                        </td>
-                        {% endif%}
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        ordenes
+    </a>
 
-                    {% else %}
-
-                    {% endif%}
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        ventas
+    </a>
 </div>
-</div>
-{% endblock content %}
+{% else %}
+
+{% endif %}
