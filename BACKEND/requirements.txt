@@ -2,3 +2,4 @@ djangorestframework
 django
 django-cors-headers
 djangorestframework-simplejwt
+django-bootstrap-v5

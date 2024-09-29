@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'products',
+    'accounts',
     
     'rest_framework',
     'rest_framework_simplejwt',
 
     "corsheaders",
+    'bootstrap5',
 
 ]
 
