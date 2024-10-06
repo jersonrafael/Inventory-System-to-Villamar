@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'orders',
     'providers',
     'clients',
+    'panel',
     
     'rest_framework',
     'rest_framework_simplejwt',

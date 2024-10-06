@@ -19,39 +19,39 @@
                 </tr>
             </thead>
             <tbody>
-                {% for product in products %}
-                <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.price }}</td>
-                    <td>{{ product.code }}</td>
-                    
-                    {% if request.user.is_authenticated%}
-                        {% if request.user.is_staff %}
-                        <td>
-                            <ul class="d-flex gap-3" style="list-style: none;">
-                                <li>
-                                    <a href="">Editar</a>
-                                </li>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.code }}</td>
+                        
+                        {% if request.user.is_authenticated%}
+                            {% if request.user.is_staff %}
+                            <td>
+                                <ul class="d-flex gap-3" style="list-style: none;">
+                                    <li>
+                                        <a href="">Editar</a>
+                                    </li>
 
+                                    <li>
+                                        <a href="">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </td>
+                            {% else %}
+                            <td>
                                 <li>
-                                    <a href="">Eliminar</a>
+                                    <a href="">Agregar al carro</a>
                                 </li>
-                            </ul>
-                        </td>
+                            </td>
+                            {% endif%}
+
                         {% else %}
-                        <td>
-                            <li>
-                                <a href="">Agregar al carro</a>
-                            </li>
-                        </td>
+
                         {% endif%}
-
-                    {% else %}
-
-                    {% endif%}
-                </tr>
-                {% endfor %}
+                    </tr>
+                    {% endfor %}
             </tbody>
         </table>
     </div>

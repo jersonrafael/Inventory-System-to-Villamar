@@ -7,7 +7,7 @@ Login
 {% block content %}
 
 <div class="d-flex justify-content-center align-items-center rounded-2" style="height: 100vh;">
-    <form class="shadow p-3" style="width: 40%" action="" method="post">
+    <form class="shadow p-3" style="width: 40%" action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
             <label for="exampleInputEmail1">Nombre Usuario</label>
