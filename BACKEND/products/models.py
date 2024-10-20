@@ -1,6 +1,7 @@
 from django.db import models
 from clients.models import client
 # Create your models here.
+
 class product(models.Model):
     name = models.CharField(max_length=255)
     code = models.IntegerField()

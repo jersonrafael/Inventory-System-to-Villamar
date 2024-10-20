@@ -7,3 +7,7 @@ class client(models.Model):
     identification = models.CharField(max_length=300)
     direction = models.CharField(max_length=255)
     client_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.name
+    
