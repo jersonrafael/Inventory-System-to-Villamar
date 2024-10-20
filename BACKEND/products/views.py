@@ -12,8 +12,16 @@ def index(request):
     return render(request, 'base.html', context=context)
 
 @login_required
-def home(request):
-    return render(request, 'home.html')
+def panel_configuration(request):
+    model= None
+    context= {
+
+    }
+    return render(request, 'sections/configuration.html', context=context)
+
+@login_required
+def home_view(request):
+    return render(request, 'sections/home.html')
 
 @login_required
 def products(request):
@@ -21,4 +29,11 @@ def products(request):
     context = {
         "products": products
     }
-    return render(request, 'products.html', context=context)
+    return render(request, 'sections/products.html', context=context)
+
+@login_required
+def add_product(request):
+    context = {
+        
+    }
+    return render(request, 'sections/add_product.html', context=context)
