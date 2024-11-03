@@ -6,8 +6,11 @@ def all_providers(request):
     data_providers = provider.objects.all()
     context = {
         "providers": data_providers
-    }       
-    return render(request,'providers.html',context=context)
+    }
+    if request.headers.get('HX-Request'):
+        return render(request,'partials/providers.html',context=context)
+    else:
+        return render(request, 'providers.html', context=context)
 
 
 def get_provider(request,id):

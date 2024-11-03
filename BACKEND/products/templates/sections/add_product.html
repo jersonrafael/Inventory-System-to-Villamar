@@ -1,1 +1,14 @@
+{% if not partial_mode %}
+ {% extends "base.html" %}
+{% endif %}
+
+
+<div class="btn btn-danger" hx-get="{% url 'products' %}" hx-trigger="click"
+hx-target="#body"
+hx-swap="innerHTML">
+    Volver
+</div>
+
 <h1>Agregar</h1>
+{% if partial_mode == False %}
+{% endif %}

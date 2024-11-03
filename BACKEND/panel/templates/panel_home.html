@@ -1,4 +1,13 @@
 {% extends "base.html" %}
+{% block navbar %}
+    {% include 'components/nav-bar.html'%}
+{% endblock navbar %}
+
+{% block asidebar %}
+    {% include "components/aside-bar.html" %}
+{% endblock asidebar %}
+
+{% block content %}
 <div class="d-flex flex-wrap gap-3 m-3" >
     
     <div class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;">
@@ -21,3 +30,5 @@
         ventas
     </div>
 </div>
+{% endblock content %}
+

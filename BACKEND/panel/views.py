@@ -1,10 +1,21 @@
 from django.shortcuts import render
 from django.views import View
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
-class panelView(View):
-    model = None
-    template_name = 'panel_home.html'
-    
-    def get(self,request):
-        return render(request, self.template_name, {})
+@login_required
+def index(request):
+    context = {
+
+    }
+    return render(request, 'panel_home.html', context=context)
+
+
+@login_required
+def panel_configuration(request):
+    model= None
+    context= {
+
+    }
+    return render(request, 'sections/configuration.html', context=context)
