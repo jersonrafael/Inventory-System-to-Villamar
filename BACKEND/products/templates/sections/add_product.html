@@ -1,1 +1,25 @@
-<h1>Agregar</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="{% url 'products' %}" class="btn btn-danger">Volver</a>
+
+  <h1>Agregar</h1>
+
+  <form action="" style="width: 60%;">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nombre del Producto" aria-label="Nombre del Producto" aria-describedby="basic-addon2" />
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Codigo del Producto" aria-label="Codigo del Producto" aria-describedby="basic-addon2" />
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
+      <span class="input-group-text">.00</span>
+    </div>
+
+    <input type="date" id="start" name="expiration-date" value="" min="2024-01-01" />
+  </form>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% if request.user.is_staff %}
+<div class="d-flex flex-wrap gap-3 m-3" >
+    
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="{% url 'products' %}">
+        Productos
+    </a>
+
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        Proveedores
+    </a>
+
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        clientes
+    </a>
+
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        ordenes
+    </a>
+
+    <a class="rounded shadow" style="width: 30%; height: 10rem; background-color: #333;" href="">
+        ventas
+    </a>
+</div>
+{% else %}
+
+{% endif %}

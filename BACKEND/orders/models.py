@@ -11,6 +11,15 @@ class order(models.Model):
     taxes = models.IntegerField(default=0)
     observations = models.TextField()
     creation = models.DateTimeField(auto_now=True)
+    recibed = models.BooleanField(default=False)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modify_date = models.DateTimeField(auto_now=True)
     
     def __str__(self) -> str:
         return f"{self.product}"
+    
+
+class returnedOrders(models.Model):
+    order = models.ForeignKey(order,on_delete=models.CASCADE, default=None)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modify_date = models.DateTimeField(auto_now=True)

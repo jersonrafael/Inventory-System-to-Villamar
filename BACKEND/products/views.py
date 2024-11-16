@@ -1,23 +1,11 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import render,get_object_or_404,redirect
 from .models import *
 
+from django.contrib.auth.decorators import login_required
+from .common import *
 
-@login_required
-def index(request):
-    context = {
+orm = ORM()
 
-    }
-    return render(request, 'base.html', context=context)
-
-@login_required
-def panel_configuration(request):
-    model= None
-    context= {
-
-    }
-    return render(request, 'sections/configuration.html', context=context)
 
 @login_required
 def home_view(request):
@@ -25,15 +13,43 @@ def home_view(request):
 
 @login_required
 def products(request):
-    products = product.objects.all()
+    orm_actions = orm.getAll(product)
     context = {
-        "products": products
+        "products": orm_actions
     }
     return render(request, 'sections/products.html', context=context)
+    
+@login_required
+def get_product(request,pk):
+    model= orm.get(product,pk)
+    context = {
+        "product":model
+    }
+
+    if request.headers.get('HX-Request'):
+        return render(request, 'sections/partials/partial_product.html', context=context)
+    else:
+        return render(request, 'sections/product.html', context=context)
+
 
 @login_required
 def add_product(request):
     context = {
-        
     }
+    if request.method == "POST":
+        product_data = {
+        "name":request.get["name"],
+        "price":request.get["price"],
+        "code":request.get["code"],
+        }
+        model = orm.create(product,product_data)
+        return redirect('products')
     return render(request, 'sections/add_product.html', context=context)
+
+@login_required
+def edit_product(request,pk):
+    model = get_object_or_404(product, pk=pk)
+    context ={
+        "product":model
+    }
+    return render(request, 'sections/edit_product.html', context=context)
